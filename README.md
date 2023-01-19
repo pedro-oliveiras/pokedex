@@ -1,3 +1,3 @@
 # pokedex
 
-codigo na brach master
+codigo na branch master
