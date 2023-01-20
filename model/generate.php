@@ -14,17 +14,17 @@
         $contador++;
     }
 
-    $idSeed = $random_number;
-    $nome = ucfirst($pokemon->forms[0]->name);
-    $tipo = strtoupper($pokemon->types[0]->type->name);
-    $cor = returnColor($tipo);
-    $tipo2 = $contador < 2 ? '' : strtoupper($pokemon->types[1]->type->name);
-    $cor2 = $contador < 2 ? '' : returnColor($tipo2);  
-    $hp = $pokemon->stats[0]->base_stat; 
-    $atack = $pokemon->stats[1]->base_stat;
+    $idSeed  = $random_number;
+    $nome    = ucfirst($pokemon->forms[0]->name);
+    $tipo    = strtoupper($pokemon->types[0]->type->name);
+    $cor     = returnColor($tipo);
+    $tipo2   = $contador < 2 ? '' : strtoupper($pokemon->types[1]->type->name);
+    $cor2    = $contador < 2 ? '' : returnColor($tipo2);  
+    $hp      = $pokemon->stats[0]->base_stat; 
+    $atack   = $pokemon->stats[1]->base_stat;
     $defense = $pokemon->stats[2]->base_stat;
-    $speed = $pokemon->stats[5]->base_stat; 
-    $photo = $pokemon->sprites->other->dream_world->front_default;
+    $speed   = $pokemon->stats[5]->base_stat; 
+    $photo   = $pokemon->sprites->other->dream_world->front_default;
 
     if($contador > 1){
         $tipos = array($tipo, $tipo2);

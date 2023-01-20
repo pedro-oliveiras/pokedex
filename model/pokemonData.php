@@ -6,9 +6,13 @@
 
     if(!empty($_GET['rand'])){
         $random_number = $_GET['rand'];
-    } else if(empty($_GET['rand'])) {
-        $pokemonSeed = $con->lastPokemonAdded();
+    } 
+    else if(empty($_GET['rand']) && !empty($con->lastPokemonAdded())) {        
+        $pokemonSeed   = $con->lastPokemonAdded();
         $random_number = $pokemonSeed[0]['idSeed'];
+    } 
+    else {
+        header("Location: ../model/generate.php");
     }
 
     $pokemon = $con->getPokemon($random_number);  
@@ -23,8 +27,6 @@
     $speed   = $pokemon[0]['speed'];
     $photo   = $pokemon[0]['photo'];
 
-    //echo $teste_str = implode('/', $teste);  
-
     $tipos = explode('/', $tipos);
     $cores = explode('/', $cores);   
     
@@ -35,6 +37,7 @@
 
     $tipo = $tipos[0];
     $cor = $cores[0];
+
     if($contador > 1){
         $tipo2 = $tipos[1];    
         $cor2 = $cores[1];
